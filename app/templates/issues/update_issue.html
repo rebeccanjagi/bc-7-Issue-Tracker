@@ -1,0 +1,113 @@
+{% extends "portal_template.html" %}
+{% block content %}
+<section class="content-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>
+                    Update issue
+                </h3>
+            </section>
+
+
+            <!-- Main content -->
+            <section class="content">
+                
+                <div class="row">
+                    <div class="view">
+
+                        <div class="modal-body">
+                            
+                            <div class="row">
+                                <div class="col-sm-8 col-md-10 ">
+                                  <form method="POST" action="/mark_issue_closed/{{ data.id }}">
+                                    <table class="table table-striped">
+                                         <tbody>  
+                                             <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; "></td>
+                                                  <td style="color:rgb(49, 29, 142)" >Priority: {{ data.priority }}</td>
+                                              </tr>
+                                              <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; "></td>
+                                                  <td style="color:rgb(49, 29, 142)" >Deadline: {{ data.deadline }}</td>
+                                              </tr>
+                                              <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">
+                                                    <dl class="dl-horizontal">
+                                                    <dt style="text-align: left; white-space:normal; ">Title:</dt>
+                                                    <dd style="color:rgb(49, 29, 142)" >{{ data.title }}</dd>
+                                                  </dl>
+
+                                                  </td>
+                                                  <td style="color:rgb(49, 29, 142)" ></td>
+                                              </tr>
+                                               <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">
+                                                    <dl class="dl-horizontal">
+                                                    <dt style="text-align: left; white-space:normal; ">Description:</dt>
+                                                    <dd style="color:rgb(49, 29, 142)" >{{ data.description }}</dd>
+                                                  </dl>
+
+                                                  </td>
+                                                  <td style="color:rgb(49, 29, 142)" ></td>
+                                              </tr>
+                                              <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">
+                                                    <dl class="dl-horizontal">
+                                                    <dt style="text-align: left; white-space:normal; ">Notes:</dt>
+                                                      
+                                                        <dd style="color:rgb(49, 29, 142)" >No notes added.</dd>
+
+                                                    
+                                                  </dl>
+
+                                                  </td>
+                                                  <td style="color:rgb(49, 29, 142)" ></td>
+                                              </tr>
+
+                                                <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">
+                                                    <dl class="dl-horizontal">
+                                                    <dt style="text-align: left; white-space:normal; ">Add a note or the solution:</dt>
+                                                    <dd style="color:rgb(49, 29, 142)" ><textarea class ="form-control mradi_forms" rows=4 name="comment"></textarea></dd>
+                                                  </dl>
+
+                                                  </td>
+                                                  <td style="color:rgb(49, 29, 142)" ></td>
+                                               </tr>
+
+                                               <tr class="dl-horizontal">
+                                                <td></td>
+                                                  <td style="text-align: left; white-space:normal; ">
+                                                    <button class="btn btn-yellow pull-right" disabled>Add note</button>
+                                                  </td>
+                                                  <td style="color:rgb(49, 29, 142)" >
+                                                    
+                                                    <button class="btn btn-yellow">Add solution</button>
+                                                  </td>
+                                               </tr>
+
+                                         </tbody>
+                                    </table>
+                                  </form>
+                                </div>                  
+                            </div>
+
+                            <div class="modal-footer" style="padding:10px;">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+ {% endblock %}
+
+
+
+
+
+
+
+

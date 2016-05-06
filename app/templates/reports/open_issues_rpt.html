@@ -1,0 +1,89 @@
+{% extends "portal_template.html" %}
+{% block content %}
+<section class="content-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>
+                    Open Issues
+                </h3>
+            </section>
+    {% with messages = get_flashed_messages() %}
+                              {% if messages %}
+                                <ul class=flashes>
+                                {% for message in messages %}
+                                  <li style="color:red !important;">{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                              {% endif %}
+                            {% endwith %}
+
+            <!-- Main content -->
+            <section class="content">
+                
+                <div class="row">
+                    <div class="view">
+
+                        <div class="modal-body">
+                            
+                            <div class="row">
+                                <div class="col-sm-8 col-md-10 ">
+                                 <table class="table table-hover" id="listing" title="campaigns">
+                                <tbody>
+                                  <tr class="gridColumns gradientSilver">
+                                     {% if session['user_type'] == "user" %}
+                                    <th> </th>
+                                    {% endif %}
+                                    <th class="column">Title</th>
+                                    <th class="column">Description</th>
+                                    <th class="column">Priority</th>
+                                    <th class="column">Raised by</th>
+                                    <th class="column">Assigned to</th>
+                                    <th class="column">Date raised</th>
+                                    <th class="column">Deadline</th>
+                                  </tr>
+                                  {% if data|length != 0 %}
+
+                                       
+                                        {% for y in data %}
+                                        <tr class="gridContentRecord" title="6">
+                                            {% if session['user_type'] == "user" %}
+                                            <td><a href="/update_issue/{{ y.id }}">Update Issue</a></td>
+                                            {% endif %}
+                                            <td>{{ y.title }} </td>
+                                            <td>{{ y.description}} </td>
+                                            <td>{{ y.priority}} </td>
+                                            <td>{{ y.raised_by}} </td>
+                                            <td>{{ y.assigned_to}} </td>
+                                            <td>{{ y.date_created}} </td>
+                                            <td>{{ y.deadline}} </td>
+                                            </tr>
+                                        {% endfor %}
+
+
+
+                                    {% endif  %}
+                                 
+                                  
+                                </tbody>
+                              </table>
+                                </div>                  
+                            </div>
+
+                            <div class="modal-footer" style="padding:10px;">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+ {% endblock %}
+
+
+
+
+
+
+
+

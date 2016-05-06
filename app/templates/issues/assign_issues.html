@@ -1,0 +1,114 @@
+{% extends "portal_template.html" %}
+{% block content %}
+<section class="content-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>
+                    Assign issue
+                </h3>
+            </section>
+              {% with messages = get_flashed_messages() %}
+                              {% if messages %}
+                                <ul class=flashes>
+                                {% for message in messages %}
+                                  <li style="color:red !important;">{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                              {% endif %}
+                            {% endwith %}
+
+            <!-- Main content -->
+            <section class="content">
+                
+                <div class="row">
+                    <div class="view">
+
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-8 col-md-10 ">
+                                  <form method="POST" action="/assign_resource/{{ data.id }}">
+                                    <table class="table table-striped">
+                                         <tbody>  
+                                             <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; "></td>
+                                                  <td style="color:rgb(49, 29, 142)" >Priority: {{ data.priority }}</td>
+                                              </tr>
+                                              <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; "></td>
+                                                  <td style="color:rgb(49, 29, 142)" >Deadline: {{ data.deadline }}</td>
+                                              </tr>
+                                              <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">
+                                                    <dl class="dl-horizontal">
+                                                    <dt style="text-align: left; white-space:normal; ">Title:</dt>
+                                                    <dd style="color:rgb(49, 29, 142)" >{{ data.title }}</dd>
+                                                  </dl>
+
+                                                  </td>
+                                                  <td style="color:rgb(49, 29, 142)" ></td>
+                                              </tr>
+                                               <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">
+                                                    <dl class="dl-horizontal">
+                                                    <dt style="text-align: left; white-space:normal; ">Description:</dt>
+                                                    <dd style="color:rgb(49, 29, 142)" >{{ data.description }}</dd>
+                                                  </dl>
+
+                                                  </td>
+                                                  <td style="color:rgb(49, 29, 142)" ></td>
+                                              </tr>
+
+                                                <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">
+                                                    <dl class="dl-horizontal">
+                                                    <dt style="text-align: left; white-space:normal; ">Select resource:</dt>
+                                                    <dd style="color:rgb(49, 29, 142)" >
+                                                        <select class="form-control" name="employee">
+                                                          {% for i in data2  %}
+                                                        <option value="{{ i.org_id }}" name="employee">{{ i.f_name + " " +i.l_name }}</option>
+                                                        {% endfor %}
+                                                        </select>
+
+                                                        </dd>
+                                                  </dl>
+
+                                                  </td>
+                                                  <td style="color:rgb(49, 29, 142)" ></td>
+                                               </tr>
+
+                                               <tr class="dl-horizontal">
+
+                                                  <td style="" >
+                                                  </td>
+                                                  
+                                                  <td style="color:rgb(49, 29, 142)" >
+                                                    
+                                                    <button class="btn btn-yellow pull-right">Assign Resource</button>
+                                                  </td>
+                                               </tr>
+
+                                         </tbody>
+                                    </table>
+                                  </form>
+                                </div>                  
+                            </div>
+
+                            <div class="modal-footer" style="padding:10px;">
+                                
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
+ {% endblock %}
+
+
+
+
+
+
+
+

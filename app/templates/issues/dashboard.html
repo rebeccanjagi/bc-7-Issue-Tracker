@@ -1,0 +1,124 @@
+{% extends "portal_template.html" %}
+{% block content %}
+
+<section class="content-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>
+                    Dashboard 
+                </h3>
+            </section>
+            
+
+            <!-- Main content -->
+            <section class="content">
+                
+                 <div class="row">
+
+
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+          
+            <a href="/open_issues">
+                <div class="small-box bg-gray">
+                    <div class="inner">
+                        <h3>
+                           {{ open }}
+                        </h3>
+                        <p>
+                             Open Issues
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-cash"></i>
+                    </div>
+                    <div class="small-box-footer">View details...  </div> 
+
+                </div>
+            </a>
+        </div>
+
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            
+            <a href="/closed_issues">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>
+                        {{ close }}
+                           
+                        </h3>
+                        <p>
+                            Closed Issues
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-cash"></i>
+                    </div>
+                    <div class="small-box-footer">View details...  </div> 
+
+                </div>
+            </a>
+        </div>
+
+         <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+             
+            <a href="/pending_issues">
+                <div class="small-box bg-gray">
+                    <div class="inner">
+                        <h3>
+                            {{ pending }}
+                        </h3>
+                        <p>
+                            Issues Pending Approval
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-cash"></i>
+                    </div>
+                    <div class="small-box-footer">View details...  </div> 
+
+                </div>
+            </a>
+        </div>
+
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+          
+            <a   href="#">
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h3>
+                            0
+                        </h3>
+                        <p>
+                            Total Inbound Emails
+                        </p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-cash"></i>
+                    </div>
+                    <div class="small-box-footer">View details...  </div> 
+
+                </div>
+        </div>
+
+       
+       
+      </div>
+            </section>
+
+
+
+ {% endblock %}
+
+
+
+
+
+
+
+

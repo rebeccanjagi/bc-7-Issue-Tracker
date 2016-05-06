@@ -1,0 +1,92 @@
+{% extends "portal_template.html" %}
+{% block content %}
+<section class="content-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3>
+                    Raise an issue
+                </h3>
+            </section>
+               {% with messages = get_flashed_messages() %}
+                              {% if messages %}
+                                <ul class=flashes>
+                                {% for message in messages %}
+                                  <li style="color:red !important;">{{ message }}</li>
+                                {% endfor %}
+                                </ul>
+                              {% endif %}
+                            {% endwith %}
+
+            <!-- Main content -->
+            <section class="content">
+                
+                <div class="row">
+                    <div class="view">
+
+                        <div class="modal-body">
+                            
+                            <div class="row">
+                               <form method="POST" action="/log_issue">
+                                <div class="col-sm-8 col-md-10 ">
+                                 
+                                    <table class="table table-striped">
+                                         <tbody>  
+                                             <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">Title:</td>
+                                                  <td style="color:rgb(49, 29, 142)" ><input type='text' class="form-control mradi_forms" name='title'
+                                                   value='' required  /></td>
+                                              </tr>
+                                              
+                                              <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">Description:</td>
+                                                  <td style="color:rgb(49, 29, 142)" ><textarea style="resize: none;" class="form-control mradi_forms" 
+                                                    name='description' value='' rows="4" required></textarea></td>
+                                              </tr>
+
+                                              <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">Priority:</td>
+                                                  <td style="color:rgb(49, 29, 142)" >
+                                                      <input type="radio" name="priority" value="High" checked="checked"> High<br>
+                                                      <input type="radio" name="priority" value="Medium"> Medium<br>
+                                                      <input type="radio" name="priority" value="Low"> Low</td>
+                                              </tr>
+                                              
+                                              <tr class="dl-horizontal">
+                                                  <td style="text-align: left; white-space:normal; ">Department:</td>
+                                                  <td style="color:rgb(49, 29, 142)" >
+                                                    <select id="department" name="department" class="form-control mradi_forms selectpicker show-menu-arrow " title="select one department..">
+                                                      <option Value='Technical'>Technical</option>
+                                                      <option Value='Operations'>Operations</option>
+                                                      <option Value='Service'>Service</option>
+                                                      <option Value='HR'>HR</option>
+                                                    </select>
+                                                    </td>
+                                              </tr>
+                                              
+                                              
+                                              
+                                         </tbody>
+                                    </table>
+                                    
+                                </div>                  
+                            </div>
+
+                            <div class="modal-footer" style="padding:10px;">
+                                <input type="submit" value="Raise Issue" class="btn btn-success mradi_forms" style="background-color: rgb(137,137,137) !important; border-color: rgb(137,137,137) !important;" />
+                            </div>
+                        </div>
+</form>
+                    </div>
+                </div>
+            </section>
+
+
+
+ {% endblock %}
+
+
+
+
+
+
+
+
